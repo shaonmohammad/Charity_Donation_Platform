@@ -12,6 +12,6 @@ def register(request):
         role = request.POST['role']
         user_registration = UserInformation(username=username,email = email,mobile = mobile, role = role)
         user_registration.save()
-        return redirect('home')
+        return redirect('register')
         #print(username, email, mobile, role)
     return render(request, 'register.html')
