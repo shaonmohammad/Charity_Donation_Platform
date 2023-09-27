@@ -110,7 +110,7 @@
                             enim minim veniam, quis nostrud exercitation. tempor 
                             incididunt  ut labore dolore magna aliqua. enim minim 
                             veniam, quis nostrud exercitation.</p>
-                        <a href="#" data-scroll-nav='1' class="boxed-btn4">Donate Now</a>
+                        <a href="{%url 'register' %}" data-scroll-nav='1' class="boxed-btn4">Donate Now</a>
                     </div>
                 </div>
             </div>
@@ -135,7 +135,9 @@
         <div class="card-body">
             <h5 class="card-title">Card title</h5>
             <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            <div class="btn btn-success">Donate</div>
+            <!-- <div class="btn btn-success">Donate</div> -->
+            <a href="{%url 'register' %}" class="btn btn-success">Donate</a>
+            <!-- <a href="{% url 'register' %}"></a> -->
         </div>
         </div>
   
