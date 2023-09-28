@@ -85,7 +85,8 @@
                                         
                                         <li><a href="index.html">home</a></li>
                                         <li><a href="About.html">About</a></li>
-                                        <li><a href="About.html">Blogs</a></li>                                       
+                                        <li><a href="{% url 'Events' %}">Event</a></li>
+                                        <li><a href="{% url 'Blog' %}">Blogs</a></li>                                       
                                         <li><a href="contact.html">Contact</a></li>
                                         <li>
                                             <form class="d-flex">
@@ -97,7 +98,7 @@
                                 </nav>
                                 <div class="Appointment">
                                     <div class="book_btn d-none d-lg-block">
-                                        <a data-scroll-nav='1' href="#">Donate</a>
+                                        <a data-scroll-nav='1' href="{% url 'register' %}">Donate</a>
                                     </div>
                                 </div>
                             </div>
@@ -163,7 +164,7 @@
                                 Services
                             </h3>
                             <ul class="links">
-                                <li><a href="#">Donate</a></li>
+                                <li><a href="{% url 'register'%}">Donate</a></li>
                                 <li><a href="#">Sponsor</a></li>
                                 <li><a href="#">Fundraise</a></li>
                                 <li><a href="#">Volunteer</a></li>
