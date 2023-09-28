@@ -110,7 +110,7 @@
                             enim minim veniam, quis nostrud exercitation. tempor 
                             incididunt  ut labore dolore magna aliqua. enim minim 
                             veniam, quis nostrud exercitation.</p>
-                        <a href="#" data-scroll-nav='1' class="boxed-btn4">Donate Now</a>
+                        <a href="{%url 'register' %}" data-scroll-nav='1' class="boxed-btn4">Donate Now</a>
                     </div>
                 </div>
             </div>
@@ -138,6 +138,11 @@
             <h5 class="card-title">title</h5>
             <p class="card-text">body</p>
             <div class="btn btn-success">Donate</div>
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <!-- <div class="btn btn-success">Donate</div> -->
+            <a href="{%url 'register' %}" class="btn btn-success">Donate</a>
+            <!-- <a href="{% url 'register' %}"></a> -->
         </div>
 
         </div>
@@ -324,6 +329,9 @@
                     <li class="list-group-item">Rating: <span class="badge bg-primary">5/5</span></li>
                     <li class="list-group-item">Reviewer: John Doe</li>
                     <li class="list-group-item">Date: September 25, 2023</li>
+                
+                    
+                    
                 </ul>
             </div>
         </div>
@@ -340,6 +348,7 @@
                     <li class="list-group-item">Rating: <span class="badge bg-primary">4/5</span></li>
                     <li class="list-group-item">Reviewer: Jane Smith</li>
                     <li class="list-group-item">Date: September 24, 2023</li>
+                    <li class="list-group-item"><a href="{% url 'feedback' %}" type="button" class="btn btn-success">Feedback</a></li>
                 </ul>
             </div>
         </div>

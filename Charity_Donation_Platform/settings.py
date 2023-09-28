@@ -37,7 +37,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #app
     'home',
+<<<<<<< HEAD
+    'feedback',
+=======
+    'user_app',
+>>>>>>> 7d9f9d238f9bd949a39f670d56618e9f916ea350
     'blog',
     'events',
 ]
