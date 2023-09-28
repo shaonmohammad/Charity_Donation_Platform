@@ -7,6 +7,10 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('home.urls')),
+    path('', include('blog.urls')),
+    # path('', include('events.urls')),
+
+    ,
 <<<<<<< HEAD
     path('feedback/', include('feedback.urls')),
 =======
