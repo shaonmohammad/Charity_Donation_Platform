@@ -110,7 +110,7 @@
                             enim minim veniam, quis nostrud exercitation. tempor 
                             incididunt  ut labore dolore magna aliqua. enim minim 
                             veniam, quis nostrud exercitation.</p>
-                        <a href="#" data-scroll-nav='1' class="boxed-btn4">Donate Now</a>
+                        <a href="{%url 'register' %}" data-scroll-nav='1' class="boxed-btn4">Donate Now</a>
                     </div>
                 </div>
             </div>
@@ -128,18 +128,10 @@
                     </div>
                 </div>
             </div>
-          <div class="contaier">
-        <div class="card-deck">
-            <div class="card">
-            <img src="{% static "img/causes/1.png" %}" alt="">
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            <div class="btn btn-success">Donate</div>
-        </div>
-        </div>
-  
-            </div>
+    
+    {% for event in events %}
+      {{event.title}}
+    {% endfor %}
         </div>
     </div>
 
@@ -263,46 +255,9 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="news_active owl-carousel">
-                        <div class="single__blog d-flex align-items-center">
-                            <div class="thum">
-                                <img src="{% static "img/news/1.png" %}" alt="">
-                            </div>
-                            <div class="newsinfo">
-                                <span>July 18, 2019</span>
-                                <a href="single-blog.html">
-                                    <h3>Pure Water Is More 
-                                        Essential</h3>
-                                </a>
-                                <p>The passage experienced a 
-                                    surge in popularity during the 
-                                    1960s when used it on their  
-                                    sheets, and again.</p>
-                                <a class="read_more" href="single-blog.html">Read More</a>
-                            </div>
-                        </div>
-                        <div class="single__blog d-flex align-items-center">
-                            <div class="thum">
-                                <img src="{% static "img/news/2.png" %}" alt="">
-                            </div>
-                            <div class="newsinfo">
-                                <span>July 18, 2019</span>
-                                <a href="single-blog.html">
-                                    <h3>Pure Water Is More 
-                                        Essential</h3>
-                                </a>
-                                <p>The passage experienced a 
-                                    surge in popularity during the 
-                                    1960s when used it on their  
-                                    sheets, and again.</p>
-                                <a class="read_more" href="single-blog.html">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+           {% for news in all_news %}
+            {{news.title}}
+           {% endfor %}
         </div>
     </div>
     <!-- news__area_end  -->
@@ -321,6 +276,9 @@
                     <li class="list-group-item">Rating: <span class="badge bg-primary">5/5</span></li>
                     <li class="list-group-item">Reviewer: John Doe</li>
                     <li class="list-group-item">Date: September 25, 2023</li>
+                
+                    
+                    
                 </ul>
             </div>
         </div>
@@ -337,6 +295,7 @@
                     <li class="list-group-item">Rating: <span class="badge bg-primary">4/5</span></li>
                     <li class="list-group-item">Reviewer: Jane Smith</li>
                     <li class="list-group-item">Date: September 24, 2023</li>
+                    <li class="list-group-item"><a href="{% url 'feedback' %}" type="button" class="btn btn-success">Feedback</a></li>
                 </ul>
             </div>
         </div>
