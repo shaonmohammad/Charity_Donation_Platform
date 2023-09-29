@@ -10,6 +10,8 @@ urlpatterns = [
 
     path('', include('blog.urls')),
     # path('', include('events.urls')),
+    path('', include('feedback.urls')),
+    path('',include('user_app.urls')),
 
     path('feedback/', include('feedback.urls')),
     path('', include('user_app.urls')),
