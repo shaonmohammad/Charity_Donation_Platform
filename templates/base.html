@@ -89,8 +89,8 @@
                                         <li><a href="{% url 'Blog' %}">Blogs</a></li>                                       
                                         <li><a href="contact.html">Contact</a></li>
                                         <li>
-                                            <form class="d-flex">
-                                                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                                            <form class="d-flex" action="{% url "search" %}" method="GET">
+                                                <input class="form-control me-2" type="text" placeholder="Search by events" aria-label="Search" name="keyword">
                                                 <button class="btn btn-danger" type="submit">Search</button>
                                             </form>
                                         </li>
@@ -244,6 +244,7 @@
     </footer>
   
    
+
 </body>
 
 </html>
