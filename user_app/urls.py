@@ -6,4 +6,7 @@ from .import views
 urlpatterns = [
     path('register/', views.register, name = 'register'),
     path('get/', views.DetailsUser.as_view()),
+    path('login/',views.UserLoginView.as_view()),
+    path('logout/', views.UserLogout.as_view()),
+    path('user_register/', views.UserRegister.as_view())
 ]

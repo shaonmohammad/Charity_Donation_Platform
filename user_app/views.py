@@ -1,8 +1,17 @@
 from .models import UserInformation
+from django.contrib.auth.models import User
 from django.shortcuts import redirect, render
 from rest_framework import generics
-from .serializers import UserInformationSerializer
-
+from rest_framework import status
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from rest_framework.authtoken.models import Token
+from django.contrib.auth import authenticate
+from .serializers import UserInformationSerializer,UserLoginSerializer
+from rest_framework.authentication import TokenAuthentication
+from rest_framework.permissions import IsAuthenticated
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.hashers import make_password
 
 def register(request):
     user_registration = None
@@ -19,5 +28,64 @@ def register(request):
     return render(request, 'register.html')
 
 class DetailsUser(generics.ListCreateAPIView):
-    queryset = UserInformation.objects.all()
-    serializer_class = UserInformationSerializer
+    queryset = User.objects.all()
+    serializer_class = UserLoginSerializer
+
+
+'''class UserLoginView(APIView):
+    def post(self, request, *args,**kwargs):
+        seriallizer = UserLoginSerializer(data = request.data)
+
+        if seriallizer.is_valid():
+            username = seriallizer.validated_data['username']
+            password = seriallizer.validated_data['password']
+
+            user = authenticate(request,username = username, password=password)
+
+            if user is not None:
+                token, created = Token.objects.get_or_create(user=user)
+                return Response({'token': token.key}, status=status.HTTP_200_OK)
+            else:
+                 return Response({'error': 'Invalid username or password'}, status=status.HTTP_401_UNAUTHORIZED)
+        else:
+            # Invalid data
+            return Response(seriallizer.errors, status=status.HTTP_400_BAD_REQUEST)'''
+
+class UserLoginView(APIView):
+    def post(self, request):
+        username = request.data.get('username')
+        email = request.data.get('email')
+        password = request.data.get('password')
+        user = authenticate(request, username=username, password=password) #, password=password
+        if user is not None:
+            login(request, user)  # Authenticate user and create session
+            serializer =  UserLoginSerializer(user)
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        return Response({'error': 'Invalid credentials'}, status=status.HTTP_401_UNAUTHORIZED)
+
+class UserLogout(APIView):
+    def post(self, request):
+        logout(request)  # Logout user and destroy session
+        return Response({'message': 'Logout successful'}, status=status.HTTP_200_OK)
+    
+class UserRegister(APIView):
+
+    def post(self, request):
+        data = request.data
+        hashed_password = make_password(data['password'])
+        new_object = User(username=data['username'], email = data['email'],password=hashed_password )
+        new_object.save()
+        return Response({'message': 'Object created successfully'}, status=status.HTTP_201_CREATED)
+        
+
+'''class UserLogout(APIView):
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticated,)
+
+    def get(self, request):
+        request.user.auth_token.delete()  # Delete the user's token
+        return Response({'message': 'Logout successful'}, status=status.HTTP_200_OK)'''
+        
+
+
+#curl -X POST -H "Authorization: Token YOUR_AUTH_TOKEN" http://localhost:8000/api/logout/
