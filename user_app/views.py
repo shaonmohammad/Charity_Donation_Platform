@@ -12,6 +12,10 @@ from django.views import View
 def CheckoutSuccessView(request):
     return render(request, 'success.html')
 
+@method_decorator(csrf_exempt, name='dispatch')
+def CheckoutFailedView(request):
+    return render(request, 'failed.html')
+
 def register(request):
     user_registration = None
     if request.method == "POST":
