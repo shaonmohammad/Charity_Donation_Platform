@@ -3,3 +3,4 @@ from .models import Feedback
 
 
 admin.site.register(Feedback)
+

@@ -11,13 +11,7 @@
  {% csrf_token %} 
 <h5>Write Your Feedback </h5>
 <div>
-{% comment %} <!-- Rating stars-->
-<label>How do your rate this</label>
-<br> {% endcomment %}
-{% comment %} 
-<div class="rate">
-    <input type="radio" name="Rating" value="black" required="required" />
-</div> {% endcomment %}
+
 
 Name:
 <input type="text" class="form-control" name="name" placeholder="Enter your name">
@@ -29,7 +23,7 @@ Email:
 Feedback:
 <textarea name="comment" rows="4" class="form-control" placeholder="Write your feedback"></textarea>
     <br>
-    <input type="submit" value="Submit" class="btn btn-primary">
+    <input type="submit" class="btn btn-primary">
 </div>
 
 </form>

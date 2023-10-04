@@ -1,11 +1,12 @@
 from rest_framework import serializers
-from feedback.models import Feedback
+from .models import Feedback
 
 
 class FeedbackSerializer(serializers.ModelSerializer):
     class Meta:
         model = Feedback
-        fields = ['name', 'email', 'comment']
+        # fields = '__all__'
+        exclude = ('blog_name',)
 
 # class FeedbackSerializer(serializers.Serializer):
 #     name = serializers.CharField(max_length=100)

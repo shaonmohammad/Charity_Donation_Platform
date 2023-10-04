@@ -260,7 +260,26 @@
            {% endfor %}
         </div>
     </div>
-    <!-- news__area_end  -->
+
+<div class="container">
+    <h1>For test</h1>
+    {{show_data.name}}
+    <div class="row">
+        {% for i in show_data %}
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Name {{ i.name }}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Feedback {{i.comment}}</h6>
+                <p class="card-text">{{i.body|slice:"0:120"}}</p>
+                
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+    {% comment %} <!-- news__area_end  -->
 
 <div class="container mt-4">
     <div class="row">
@@ -281,22 +300,24 @@
                     
                 </ul>
             </div>
-        </div>
+        </div> 
 
         <!-- Second Review Card -->
+        {% for i in show_data %}
         <div class="col-md-4">
             <div class="card mb-4">
                 <div class="card-body">
                     <h5 class="card-title">Customer Review</h5>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed gravida justo ut
-                        urna fringilla, vel tempor massa tincidunt.</p>
+                    <p class="card-text">{{i.comment}}</p>
                 </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Rating: <span class="badge bg-primary">4/5</span></li>
-                    <li class="list-group-item">Reviewer: Jane Smith</li>
+                    <li class="list-group-item">Reviewer: {{i.name}}</li>
                     <li class="list-group-item">Date: September 24, 2023</li>
-                    <li class="list-group-item"><a href="{% url 'feedback' %}" type="button" class="btn btn-success">Feedback</a></li>
+                   
                 </ul>
+        {% endfor %}
             </div>
-        </div>
+              
+        </div> {% endcomment %}
+     
 {% endblock  %}
