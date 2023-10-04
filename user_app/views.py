@@ -1,7 +1,6 @@
-from django.shortcuts import render,redirect
 from .models import UserInformation
+from django.shortcuts import redirect, render
 
-# Create your views here.
 
 def register(request):
     user_registration = None
@@ -10,8 +9,9 @@ def register(request):
         email = request.POST['email']
         mobile = request.POST['mobile']
         role = request.POST['role']
-        user_registration = UserInformation(username=username,email = email,mobile = mobile, role = role)
+        user_registration = UserInformation(
+            username=username, email=email, mobile=mobile, role=role)
         user_registration.save()
         return redirect('register')
-        #print(username, email, mobile, role)
+        # print(username, email, mobile, role)
     return render(request, 'register.html')
