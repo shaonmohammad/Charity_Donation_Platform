@@ -1,0 +1,1 @@
+web:gunicorn Charity_Donation_Platform.wsgi

@@ -3,6 +3,7 @@ from django.http import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.parsers import JSONParser
 from .models import Feedback
+from blog.models import BlogModel
 from feedback.serializers import FeedbackSerializer
 from django.contrib import messages
 from rest_framework.generics import ListAPIView, CreateAPIView, DestroyAPIView, UpdateAPIView
@@ -11,6 +12,7 @@ from rest_framework.generics import ListAPIView, CreateAPIView, DestroyAPIView, 
 
 
 def feedback_form(request):
+ 
     print(request.POST)
     if request.method == "POST":
         name = request.POST['name']

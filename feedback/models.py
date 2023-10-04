@@ -5,7 +5,7 @@ from blog.models import BlogModel
 
 
 class Feedback(models.Model):
-    blog_name=models.ForeignKey(BlogModel,on_delete=models.CASCADE)
+    # blog_name=models.ForeignKey(BlogModel,on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
     email = models.EmailField()
     comment = models.CharField(max_length=300)
