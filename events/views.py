@@ -1,12 +1,16 @@
 from django.shortcuts import render, redirect
 from django.views.generic import ListView
 from . models import Event_Model
+from .models import Event_Model
+from blog.models import BlogModel
 from django.db.models import Q
+
 # Create your views here.
 
 
 class Manage_Event(ListView):
     model = Event_Model
+    template_name = 'events.html'
     template_name = 'home.html'
 
 
