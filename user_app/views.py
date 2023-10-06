@@ -4,13 +4,12 @@ from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
 from .models import PaymentGatewaySettings
 from django.views import View
-
+from django.shortcuts import redirect, render
 
 # Create your views here.
 @method_decorator(csrf_exempt, name='dispatch')
 def CheckoutSuccessView(request):
     return render(request, 'success.html')
-from django.shortcuts import redirect, render
 
 
 @method_decorator(csrf_exempt, name='dispatch')
