@@ -7,12 +7,13 @@ from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
 from .models import PaymentGatewaySettings
 from django.views import View
-
+from django.shortcuts import redirect, render
 
 # Create your views here.
 @method_decorator(csrf_exempt, name='dispatch')
 def CheckoutSuccessView(request):
     return render(request, 'success.html')
+<<<<<<< HEAD
 >>>>>>> 933caffa1d92f86830ebe2d729eac2fdbe085094
 from django.shortcuts import redirect, render
 from rest_framework import generics
@@ -26,6 +27,9 @@ from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.hashers import make_password
+=======
+
+>>>>>>> 220a10c14e66a5060a6c799fe758bdc77d3d9321
 
 @method_decorator(csrf_exempt, name='dispatch')
 def CheckoutFailedView(request):
