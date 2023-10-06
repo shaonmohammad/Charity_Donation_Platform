@@ -7,7 +7,9 @@ class UserInformation(models.Model):
     email = models.EmailField(max_length=100)
     mobile = models.CharField(max_length=100)
     role = models.CharField(max_length=10)
-    amount=models.IntegerField()
+    # amount=models.IntegerField(null=True)
+    amount = models.DecimalField(max_digits=10, decimal_places=2, default=0.0, null=True)
+
 
     def __str__(self) -> str:
         return self.username
