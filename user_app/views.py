@@ -1,7 +1,7 @@
 from .models import UserInformation
-<<<<<<< HEAD
+
 from django.contrib.auth.models import User
-=======
+
 from .ssl import sslcommerz_payment_gateway
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
@@ -13,8 +13,7 @@ from django.shortcuts import redirect, render
 @method_decorator(csrf_exempt, name='dispatch')
 def CheckoutSuccessView(request):
     return render(request, 'success.html')
-<<<<<<< HEAD
->>>>>>> 933caffa1d92f86830ebe2d729eac2fdbe085094
+
 from django.shortcuts import redirect, render
 from rest_framework import generics
 from rest_framework import status
@@ -27,9 +26,7 @@ from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.hashers import make_password
-=======
 
->>>>>>> 220a10c14e66a5060a6c799fe758bdc77d3d9321
 
 @method_decorator(csrf_exempt, name='dispatch')
 def CheckoutFailedView(request):
@@ -81,7 +78,7 @@ class DetailsUser(generics.ListCreateAPIView):
 class UserLoginView(APIView):
     def post(self, request):
         username = request.data.get('username')
-        email = request.data.get('email')
+        #email = request.data.get('email')
         password = request.data.get('password')
         user = authenticate(request, username=username, password=password) #, password=password
         if user is not None:

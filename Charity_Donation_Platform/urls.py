@@ -8,6 +8,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('home.urls')),
     path('', include('blog.urls')),
+    path('tinymce/', include('tinymce.urls')),
     path('', include('events.urls')),
     path('feedback/', include('feedback.urls')),
     path('',include('user_app.urls')),
