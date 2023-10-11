@@ -1,0 +1,151 @@
+<<<<<<< HEAD
+
+{% extends "base.html" %}
+{% block title %}Blog{% endblock %}
+
+
+{% block content %}
+</br></br>
+</br></br>
+    {% if results %}
+        {% for result in results%}
+            
+       
+ 
+
+    <div style="width: 50%; height: 500px; margin:auto;>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">{{result.title}}</li>
+            <li class="list-group-item">{{result.body}}</li>
+          
+        </ul>
+      </div>
+      {% endfor %}
+      {% else %}
+      <div style="width: 50%; height: 500px; margin:auto;>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">No result found</li>
+          
+        </ul>
+      </div>
+    {% endif %}
+
+{% endblock %}
+{% comment %} <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% if results %}
+    {% for result in results%}
+        {{result}}
+    {% endfor %}
+        {% else %}
+        <h1>no result found</h1>
+        {% endif %}
+
+
+    {% for blogs in results_blogs %}
+        {{blogs}}
+    {% endfor %}
+    </body>
+=======
+{% extends "base.html" %}
+{% block title %}Blog{% endblock %}
+{% block content %}
+
+</br></br>
+
+</br></br>
+
+    {% if results %}
+
+        {% for result in results%}
+
+
+    <div style="width: 50%; height: 500px; margin:auto;>
+
+        <ul class="list-group list-group-flush">
+
+            <li class="list-group-item">{{result.title}}</li>
+
+            <li class="list-group-item">{{result.body}}</li>
+
+          
+
+        </ul>
+
+      </div>
+
+      {% endfor %}
+
+      {% else %}
+
+      <div style="width: 50%; height: 500px; margin:auto;>
+
+        <ul class="list-group list-group-flush">
+
+            <li class="list-group-item">No result found</li>
+
+          
+
+        </ul>
+
+      </div>
+
+    {% endif %}
+
+
+
+{% endblock %}
+
+{% comment %} <!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+
+</head>
+
+<body>
+
+    {% if results %}
+
+    {% for result in results%}
+
+        {{result}}
+
+    {% endfor %}
+
+        {% else %}
+
+        <h1>no result found</h1>
+
+        {% endif %}
+
+
+
+
+
+    {% for blogs in results_blogs %}
+
+        {{blogs}}
+
+    {% endfor %}
+
+    </body>
+
+>>>>>>> main
+</html> {% endcomment %}
