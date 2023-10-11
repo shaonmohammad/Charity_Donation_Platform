@@ -8,7 +8,8 @@
     <title>{% block title %}Homepage{% endblock %}</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <!-- <link rel="manifest" href="site.webmanifest"> -->
     <link rel="shortcut icon" type="image/x-icon" href="{% static "img/favicon.png" %}">
     <!-- Place favicon.ico in the root directory -->
@@ -88,6 +89,7 @@
                                         <li><a href="{% url 'Events' %}">Event</a></li>
                                         <li><a href="{% url 'Blog' %}">Blogs</a></li>                                       
                                         <li><a href="contact.html">Contact</a></li>
+                                        <li><a href="{% url 'faq' %}">FAQ</a></li>
                                         <li>
                                             <form class="d-flex" action="{% url "search" %}" method="GET">
                                                 <input class="form-control me-2" type="text" placeholder="Search by events" aria-label="Search" name="keyword">
