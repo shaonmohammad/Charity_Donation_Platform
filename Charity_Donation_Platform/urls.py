@@ -10,6 +10,8 @@ urlpatterns = [
     path('', include('blog.urls')),
     path('tinymce/', include('tinymce.urls')),
     path('', include('events.urls')),
+    path('', include('events.urls')),
+    path('faq/', include('FAQ.urls')),
     path('feedback/', include('feedback.urls')),
     path('',include('user_app.urls')),
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
