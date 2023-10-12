@@ -4,19 +4,30 @@
 
 {% block content %}
 </br></br>
-</br></br>
-<div class="container">
+
+
+<div class="container mt-5">
+    <div class="section_title text-center mb-55">
+        <h3><span>Blogs</span></h3>
+    </div>
     <div class="row">
-        {%for i in object_list %}
-        <div class="card" style="width: 18rem;">
+        <div class="col-md-8 offset-md-2">
+            </br></br>
+            {%for i in object_list %}
+
+            <img src="blog-image.jpg" class="card-img-top" alt="Blog Image">
             <div class="card-body">
                 <h5 class="card-title">{{ i.title }}</h5>
-                <h6 class="card-subtitle mb-2 text-muted">{{i.author}}</h6>
-                <p class="card-text">{{i.body|slice:"0:120"}}</p>
-                <a href="{% url 'Blog-Detail' i.pk %}" class="card-link">Read More</a>
+                <p class="card-text">{{i.author}}</p>
+                <p class="card-text">{{i.body|safe|slice:"0:500"}}</p>
+                <a href="{% url 'Blog-Detail' i.pk %}" class="btn btn-primary">Read More</a>
             </div>
+            </br></br>
+
+            {% endfor %}
+
+            </br></br>
         </div>
-        {% endfor %}
     </div>
 </div>
 
