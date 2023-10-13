@@ -304,44 +304,29 @@
     <!-- news__area_end  -->
 
     <div class="container mt-4">
+         
         <div class="row">
+            
             <!-- First Review Card -->
+           
             <div class="col-md-4">
+                 {% for item in data %}
                 <div class="card mb-4">
+                    
                     <div class="card-body">
+                       
                         <h5 class="card-title">Customer Review</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet,
-                            consectetur adipiscing elit. Sed gravida justo ut
-                            urna fringilla, vel tempor massa tincidunt.</p>
+                        <p class="card-text">{{item.comment}}.</p>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Rating: <span
-                                class="badge bg-primary">5/5</span></li>
-                        <li class="list-group-item">Reviewer: John Doe</li>
-                        <li class="list-group-item">Date: September 25, 2023</li>
+                        <li class="list-group-item">Reviewer: {{item.name}}</li>
+                        <li class="list-group-item">Date: {{item.created_at}}</li>
 
                     </ul>
+                     
                 </div>
+               {% endfor %}
             </div>
-
-            <!-- Second Review Card -->
-            <div class="col-md-4">
-                <div class="card mb-4">
-                    <div class="card-body">
-                        <h5 class="card-title">Customer Review</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet,
-                            consectetur adipiscing elit. Sed gravida justo ut
-                            urna fringilla, vel tempor massa tincidunt.</p>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Rating: <span
-                                class="badge bg-primary">4/5</span></li>
-                        <li class="list-group-item">Reviewer: Jane Smith</li>
-                        <li class="list-group-item">Date: September 24, 2023</li>
-                        <li class="list-group-item"><a
-                                href="{% url 'feedback' %}" type="button"
-                                class="btn btn-success">Feedback</a></li>
-                    </ul>
-                </div>
-            </div>
+            
+       </div>
             {% endblock %}

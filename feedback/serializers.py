@@ -5,7 +5,7 @@ from feedback.models import Feedback
 class FeedbackSerializer(serializers.ModelSerializer):
     class Meta:
         model = Feedback
-        fields = ['name', 'email', 'comment']
+        fields = ['name', 'email', 'comment','created_at']
 
 # class FeedbackSerializer(serializers.Serializer):
 #     name = serializers.CharField(max_length=100)
