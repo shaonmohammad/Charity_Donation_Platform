@@ -31,6 +31,23 @@ def register(request):
         user_registration = UserInformation(
             username=username, email=email, mobile=mobile, role=role)
         user_registration.save()
+        
+        context={
+            'username':username,
+            'email':email,
+            'amount':amount,
+            'Date':Date
+            
+        }
         return redirect('register')
+        
+
         # print(username, email, mobile, role)
     return render(request, 'register.html')
+
+
+def donation_report(request):
+    donations = UserInformation.objects.all()
+    for i in donations:
+        print(i)
+    return render(request, 'report_template.html', {'donations': donations})

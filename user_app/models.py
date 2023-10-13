@@ -13,13 +13,15 @@ class UserInformation(models.Model):
     # amount=models.IntegerField(null=True)
     amount = models.DecimalField(max_digits=10, decimal_places=2, default=0.0, null=True)
 
+    amount = models.DecimalField(
+        max_digits=10, decimal_places=2, default=0.0, null=True)
+    timestamp = models.DateField(auto_now_add=True)
 
     def __str__(self) -> str:
         return self.username
 
 
 class PaymentGatewaySettings(models.Model):
-
     store_id = models.CharField(max_length=500, blank=True, null=True)
     store_pass = models.CharField(max_length=500, blank=True, null=True)
 
