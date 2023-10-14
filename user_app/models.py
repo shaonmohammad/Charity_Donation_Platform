@@ -11,6 +11,8 @@ class UserInformation(models.Model):
     amount = models.DecimalField(
         max_digits=10, decimal_places=2, default=0.0, null=True, blank=True)
     # amount=models.IntegerField(null=True)
+    amount = models.DecimalField(max_digits=10, decimal_places=2, default=0.0, null=True)
+
     amount = models.DecimalField(
         max_digits=10, decimal_places=2, default=0.0, null=True)
     timestamp = models.DateField(auto_now_add=True)
