@@ -75,7 +75,7 @@ class DetailsUser(generics.ListCreateAPIView):
             # Invalid data
             return Response(seriallizer.errors, status=status.HTTP_400_BAD_REQUEST)'''
 
-class UserLoginView(APIView):
+'''class UserLoginView(APIView):
     def post(self, request):
         username = request.data.get('username')
         #email = request.data.get('email')
@@ -85,7 +85,7 @@ class UserLoginView(APIView):
             login(request, user)  # Authenticate user and create session
             serializer =  UserLoginSerializer(user)
             return Response(serializer.data, status=status.HTTP_200_OK)
-        return Response({'error': 'Invalid credentials'}, status=status.HTTP_401_UNAUTHORIZED)
+        return Response({'error': 'Invalid credentials'}, status=status.HTTP_401_UNAUTHORIZED)'''
 
 class UserLogout(APIView):
     def post(self, request):
@@ -113,3 +113,32 @@ class UserRegister(APIView):
 
 
 #curl -X POST -H "Authorization: Token YOUR_AUTH_TOKEN" http://localhost:8000/api/logout/
+
+
+
+def signup(request):
+    if request.method == "POST":
+        username = request.POST['username']
+        email = request.POST['email']
+        password = request.POST['password']
+        user = User.objects.create_user(username = username,email = email, password = password)
+        return redirect('home')
+    return render(request, 'signup.html')
+
+def user_login(request):
+    if request.method=="POST":
+        username =request.POST['username']
+        password = request.POST['password']
+
+        user = authenticate(request, username=username, password = password)
+        if user is not None:
+            login(request,user)
+            return redirect('home')
+        else:
+            # Authentication failed, return an error message to the user
+            return render(request, 'login.html', {'error_message': 'Invalid username or password. Please try again.'})
+    return render(request, 'login.html')
+
+def user_logout(request):
+    logout(request)
+    return redirect('home')
