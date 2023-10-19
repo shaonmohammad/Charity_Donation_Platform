@@ -8,12 +8,14 @@
     <title>{% block title %}Homepage{% endblock %}</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <!-- <link rel="manifest" href="site.webmanifest"> -->
     <link rel="shortcut icon" type="image/x-icon" href="{% static "img/favicon.png" %}">
     <!-- Place favicon.ico in the root directory -->
 
     <!-- CSS here -->
+   
     <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">
     <link rel="stylesheet" href="{% static "css/owl.carousel.min.css" %}">
     <link rel="stylesheet" href="{% static "css/magnific-popup.css" %}">
@@ -43,7 +45,7 @@
                         <div class="col-xl-6 col-md-12 col-lg-8">
                             <div class="short_contact_list">
                                 <ul>
-                                    <li><a href="#"> <i class="fa fa-phone"></i> +1 (4544) 556-5656</a></li>
+                                    <li><a href="#"> <i class="fa fa-phone"></i> +1 (641) 451-3545</li>
                                     <li><a href="#"> <i class="fa fa-envelope"></i>TechTitans@gmail.com</a></li>
                                 </ul>
                             </div>
@@ -83,15 +85,15 @@
                                     <ul id="navigation">
                                         
                                         
-                                        <li><a href="index.html">home</a></li>
-                                        <li><a href="About.html">About</a></li>
+                                        <li><a href="{% url "home" %}">home</a></li>
+                                        <li><a href="{% url 'about' %}">About</a></li>
                                         <li><a href="{% url 'Blog' %}">Blogs</a></li>                                       
                                         <li><a href="contact.html">Contact</a></li>
+                                        <li><a href="{% url 'faq' %}">FAQ</a></li>
+                                        <li><a href="{% url "donation_report" %}">Donation History</a></li>
                                         <li>
-                                              <form class="d-flex" action="{% url "search" %}" method="GET">
-
-                                                <input class="form-control me-2" type="text" placeholder="Search" aria-label="Search" name="keyword">
-
+                                            <form class="d-flex" action="{% url "search" %}" method="GET">
+                                                <input class="form-control me-2" type="text" placeholder="Search by events" aria-label="Search" name="keyword">
                                                 <button class="btn btn-danger" type="submit">Search</button>
 
                                             </form>
@@ -133,7 +135,11 @@
                                     <img src="img/footer_logo.png" alt="">
                                 </a>
                             </div>
-                            <p class="address_text">Lorem ipsum dolor sit amet, <br> consectetur adipiscing elit, sed do <br> eiusmod tempor incididunt ut labore.
+                            <p class="address_text">Visit our website and make a difference today. 
+                                Your donation can change lives, support important causes, 
+                                and create a brighter future. 
+                                Be part of the change you want to see in the world. 
+                                Your contribution matters. Visit now and make an impact.
                             </p>
                             <div class="socail_links">
                                 <ul>
@@ -183,10 +189,9 @@
                                 Contacts
                             </h3>
                             <div class="contacts">
-                                <p>+2(305) 587-3407 <br>
-                                    info@loveuscharity.com <br>
-                                    Flat 20, Reynolds Neck, North
-                                    Helenaville, FV77 8WS
+                                <p>+1(641) 451-2545 <br>
+                                    TechTitans@gmail.com <br>
+                                    Banani, Dhaka 1213, Bangladesh
                                 </p>
                             </div>
                         </div>
@@ -200,29 +205,15 @@
                                 <li>
                                     <div class="thumb">
                                         <a href="#">
-                                            <img src="img/news/news_1.png" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="info">
-                                        <a href="#">
-                                            <h4>School for African 
-                                                Childrens</h4>
-                                        </a>
-                                        <span>Jun 12, 2019</span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="thumb">
-                                        <a href="#">
                                             <img src="img/news/news_2.png" alt="">
                                         </a>
                                     </div>
                                     <div class="info">
-                                        <a href="#">
-                                            <h4>School for African 
-                                                Childrens</h4>
-                                        </a>
-                                        <span>Jun 12, 2019</span>
+                                        {% for news in all_news %}
+                                        <h4>{{news.title}}</h4>
+                                        <span>{{news.post_date}}</span>
+                                        <br>
+                                        {% endfor %}
                                     </div>
                                 </li>
                             </ul>
