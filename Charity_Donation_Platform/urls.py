@@ -13,9 +13,8 @@ urlpatterns = [
     path('tinymce/', include('tinymce.urls')),
     path('', include('about.urls')),
 
-    path('', include('feedback.urls')),
+
     path('', include('user_app.urls')),
 
-    path('feedback/', include('feedback.urls')),
     path('', include('user_app.urls')),
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
