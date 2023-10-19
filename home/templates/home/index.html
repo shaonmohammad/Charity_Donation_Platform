@@ -8,13 +8,12 @@
             <div class="row">
                 <div class="col-lg-9">
                     <div class="slider_text ">
-                        <span>Get Started Today.</span>
-                        <h3> Help the children
-                            When They Need</h3>
-                        <p>With so much to consume and such little time, coming
-                            up <br>
-                            with relevant title ideas is essential</p>
-                        <a href="About.html" class="boxed-btn3">Learn More
+                        <span>Donate Today.</span>
+                        <h3> Help the Autistic Children
+                            in Need</h3>
+                        <p>Helping autistic children fosters inclusivity, promotes their potential,<br> 
+                            and contributes to a more compassionate and equitable society.</p>
+                        <a href="{% url 'about' %}" class="boxed-btn3">Learn More
                         </a>
                     </div>
                 </div>
@@ -44,10 +43,8 @@
                     </div>
                     <div class="help_content">
                         <h4>Collecting Fund</h4>
-                        <p>Lorem ipsum, or lipsum as it is
-                            sometimes known, is dummy
-                            text used in laying out print.</p>
-                        <a href="#" class="read_more">Read More</a>
+                        <p>Help us support autistic children. Your donation provides essential resources for a brighter future. Give today, make a difference.</p>
+                        <!-- <a href="#" class="read_more">Read More</a> -->
                     </div>
                 </div>
             </div>
@@ -60,10 +57,8 @@
                     </div>
                     <div class="help_content">
                         <h4>Doctor's Camp</h4>
-                        <p>Lorem ipsum, or lipsum as it is
-                            sometimes known, is dummy
-                            text used in laying out print.</p>
-                        <a href="#" class="read_more">Read More</a>
+                        <p>Specialized doctor's camp for autistic children. Expert guidance, support, and hope. Join us in nurturing their potential. Transforming lives.</p>
+                        <!-- <a href="#" class="read_more">Read More</a> -->
                     </div>
                 </div>
             </div>
@@ -76,10 +71,8 @@
                     </div>
                     <div class="help_content">
                         <h4>Friendly Volunteer</h4>
-                        <p>Lorem ipsum, or lipsum as it is
-                            sometimes known, is dummy
-                            text used in laying out print.</p>
-                        <a href="#" class="read_more">Read More</a>
+                        <p>Seeking friendly volunteers for autistic children. Your warmth and compassion make a world of difference. Join us in creating smiles.</p>
+                        <!-- <a href="#" class="read_more">Read More</a> -->
                     </div>
                 </div>
             </div>
@@ -105,17 +98,8 @@
                         <h3> <span>Watch Our Latest </span><br>
                             Activities</h3>
                     </div>
-                    <p class="para_1">Lorem ipsum dolor sit amet, consectetur
-                        adipisicing elit sed do
-                        eiusmod tempor incididunt ut labore dolore magna aliqua.
-                        enim minim veniam, quis nostrud exercitation.</p class="para_1">
-                        <p class="para_2">Lorem ipsum dolor sit amet,
-                            consectetur adipisicing elit sed do
-                            eiusmod tempor incididunt ut labore dolore magna
-                            aliqua.
-                            enim minim veniam, quis nostrud exercitation. tempor
-                            incididunt ut labore dolore magna aliqua. enim minim
-                            veniam, quis nostrud exercitation.</p>
+                    <p class="para_1">We kindly request your support in making a significant impact on the lives of autistic children. Your donation will provide essential resources, therapies, and educational opportunities that will empower them to reach their full potential. By contributing, you're not only enhancing the quality of life for these remarkable kids but also fostering understanding, inclusion, and acceptance within our society</p class="para_1">
+                        <p class="para_2">With your help, we can create a world where every autistic child is valued, cherished, and given the opportunity to thrive. Please consider donating today and be a part of this transformative journey towards a more compassionate and equitable world.</p>
                         <a href="{%url 'register' %}" data-scroll-nav='1'
                             class="boxed-btn4">Donate Now</a>
                     </div>
@@ -126,12 +110,13 @@
     <!-- latest_activites_area_end  -->
 
     <!-- popular_causes_area_start  -->
+    
     <div class="popular_causes_area section_padding">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-6">
                     <div class="section_title text-center mb-55">
-                        <h3><span>Popular Causes</span></h3>
+                        <h3><span>Campaigns</span></h3>
                     </div>
                 </div>
             </div>
@@ -139,11 +124,16 @@
            
             <div class="row">
                  {% for event in events %}
-                <div class="col-sm-6 mb-3 mb-sm-0">
+                <div class="col-sm-4 mb-3 mb-sm-0">
                     <div class="card">
+                        <img src="{{event.pic.url}}" class="img-fluid" alt="Responsive image">
                         <div class="card-body">
                             <h5 class="card-title">{{event.title}}</h5>
                             <p class="card-text">{{event.body}}</p>
+                            <br>
+                            <h5 class="card-title">Event Date: {{event.post_date}}</h5>
+                            <br>
+                            <a data-scroll-nav='1' href="{% url 'register' %}"class="btn btn-primary">Donate</a>
                             <strong>{{event.post_data}}</strong>
                         </div>
                     </div>
@@ -288,11 +278,14 @@
             </div>
              <div class="row">
                  {% for news in all_news %}
-                <div class="col-sm-6 mb-3 mb-sm-0">
+                <div class="col-sm-4 mb-3 mb-sm-0">
+                    <img src="{{news.pic.url}}" class="img-fluid" alt="Responsive image">
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">{{news.title}}</h5>
                             <p class="card-text">{{news.body}}</p>
+                            <br>
+                            <h5 class="card-title">Event Successfully Completed on: {{news.post_date}}</h5>
                             <strong>{{news.post_data}}</strong>
                         </div>
                     </div>
