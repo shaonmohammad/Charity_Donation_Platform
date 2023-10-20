@@ -23,7 +23,7 @@ def search(request):
         if keyword:
 
             results_events = Event_Model.objects.filter(
-                Q(title__icontains=keyword))
+                Q(title__icontains=keyword) | Q(body__icontains=keyword))
 
             # results_blogs = BlogModel.objects.filter(Q(title__icontains=keyword) | Q(body__icontains=keyword))
 

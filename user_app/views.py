@@ -27,10 +27,9 @@ def register(request):
         username = request.POST['username']
         email = request.POST['email']
         mobile = request.POST['mobile']
-        role = request.POST['role']
         amount = request.POST['amount']
         user_registration = UserInformation(
-            username=username, email=email, mobile=mobile, role=role, amount=amount)
+            username=username, email=email, mobile=mobile, amount=amount)
         user_registration.save()
         return redirect(sslcommerz_payment_gateway(request, amount))
         # print(username, email, mobile, role)

@@ -88,9 +88,9 @@
                                         <li><a href="{% url "home" %}">home</a></li>
                                         <li><a href="{% url 'about' %}">About</a></li>
                                         <li><a href="{% url 'Blog' %}">Blogs</a></li>                                       
-                                        <li><a href="contact.html">Contact</a></li>
+
                                         <li><a href="{% url 'faq' %}">FAQ</a></li>
-                                        <li><a href="{% url "donation_report" %}">Donation History</a></li>
+                                       
                                         <li>
                                             <form class="d-flex" action="{% url "search" %}" method="GET">
                                                 <input class="form-control me-2" type="text" placeholder="Search by events" aria-label="Search" name="keyword">
@@ -173,21 +173,7 @@
 
                         </div>
                     </div>
-                    <div class="col-xl-2 col-md-6 col-lg-2">
-                        <div class="footer_widget">
-                            <h3 class="footer_title">
-                                Services
-                            </h3>
-                            <ul class="links">
-                                <li><a href="{% url 'register'%}">Donate</a></li>
-                                <li><a href="#">Sponsor</a></li>
-                                <li><a href="#">Fundraise</a></li>
-                                <li><a href="#">Volunteer</a></li>
-                                <li><a href="#">Partner</a></li>
-                                <li><a href="#">Jobs</a></li>
-                            </ul>
-                        </div>
-                    </div>
+
                     <div class="col-xl-3 col-md-6 col-lg-3">
                         <div class="footer_widget">
                             <h3 class="footer_title">
