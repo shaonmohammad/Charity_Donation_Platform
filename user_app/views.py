@@ -20,7 +20,7 @@ def CheckoutSuccessView(request):
 def CheckoutFailedView(request):
     return render(request, 'failed.html')
 
-
+#not required
 def register(request):
     user_registration = None
     if request.method == "POST":
@@ -87,3 +87,56 @@ def history(request):
     }
 
     return render(request, 'report_template.html', context)
+
+
+
+#Not required
+def paypal_index(request):
+    amount=100
+    if request.method == "POST":
+        username = request.POST['username']
+        email = request.POST['email']
+        mobile = request.POST['mobile']
+        amount = request.POST['amount']
+        user_registration = UserInformation(
+            username=username, email=email, mobile=mobile, amount=amount)
+        user_registration.save()
+
+    return render(request, 'pay_pal.html', {'amount': amount, 'username':username})
+
+
+
+
+
+
+from django.shortcuts import render
+import razorpay
+from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.csrf import csrf_protect
+
+@csrf_exempt
+
+def home(request):
+    if request.method == "POST":
+        name = request.POST.get('name')
+        username = request.POST['username']
+        email = request.POST['email']
+        mobile = request.POST['mobile']
+        amount = request.POST['amount']
+        user_registration = UserInformation(
+            username=username, email=email, mobile=mobile, amount=amount)
+        user_registration.save()
+        context = {
+            'amount': amount,
+        }
+
+        client = razorpay.Client(
+            auth=("rzp_test_FsPrzx8c1jeEBi", "hLX4neahoFw1OHlLc9cmz5dE"))
+
+        payment = client.order.create({'amount': amount, 'currency': 'INR',
+                                       'payment_capture': '1'})
+    return render(request, 'index1.html', context)
+
+@csrf_exempt
+def success(request):
+    return render(request, "success1.html")
