@@ -9,7 +9,7 @@
             <div class="card">
                 <div class="card-header">Registration Form</div>
                 <div class="card-body">
-                    <form  method="POST">
+                    <form  method="POST" action={% url 'hm' %}>
                         <!-- Name Input -->
                         <div class="form-group">
                             {%csrf_token%}
@@ -39,7 +39,10 @@
                         
                         <!-- Submit Button -->
                         <div class="text-center">
-                            <button type="submit" class="btn btn-primary">Register</button>
+                            {% comment %} <a data-scroll-nav='1' href="{% url 'paypal' %}"class="btn btn-primary">Donate</a> {% endcomment %}
+                            <button type="submit" class="btn btn-primary">Donate</button>
+
+                            {% comment %} <button type="submit" class="btn btn-primary"><a>href="{% url 'paypal' %}"</a>Donate</button> {% endcomment %}
                         </div>
                     </form>
                 </div>
