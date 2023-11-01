@@ -41,3 +41,4 @@ tzdata==2022.7
 urllib3==2.0.4
 virtualenv==20.24.2
 virtualenvwrapper-win==1.2.7
+django-tinymce== 3.6.1
