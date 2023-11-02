@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'FAQ',
     'tinymce',
     'about',
+    'rest_framework',
 
 ]
 
